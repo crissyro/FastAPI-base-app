@@ -6,8 +6,8 @@ class ApiPrefix(BaseModel):
     prefix: str = "/api"
     
 class RunConfig(BaseModel):
-    host: str = "0.0.0.0"
-    port: int = 8000
+    host: str = "127.0.0.1"
+    port: int = 8080
     reload: bool = True
 
 class Settings(BaseSettings):
