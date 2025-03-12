@@ -7,7 +7,7 @@ from core.config import settings
 from core.models import db_helper
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app_: FastAPI):
     # startup
     yield
     #shutdown
@@ -25,8 +25,9 @@ app.include_router(
     )
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", 
-                host=settings.run.host, 
-                port=settings.run.port, 
-                reload=settings.run.reload
-                )
+    uvicorn.run(
+        "main:app", 
+        host=settings.run.host, 
+        port=settings.run.port, 
+        reload=settings.run.reload
+    )
