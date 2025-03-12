@@ -1,1 +1,1 @@
-# friend-search-system
+# FastAPI-base-app
