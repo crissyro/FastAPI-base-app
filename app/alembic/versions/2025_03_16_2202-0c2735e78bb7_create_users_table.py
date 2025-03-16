@@ -29,6 +29,7 @@ def upgrade() -> None:
         sa.UniqueConstraint("username", name=op.f("uq_users_username")),
     )
 
+
 def downgrade() -> None:
     """Downgrade schema."""
     op.drop_table("users")

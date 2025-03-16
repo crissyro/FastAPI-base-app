@@ -22,9 +22,7 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     """Upgrade schema."""
     op.add_column("users", sa.Column("email", sa.String(), nullable=False))
-    op.add_column(
-        "users", sa.Column("is_active", sa.Boolean(), nullable=False)
-    )
+    op.add_column("users", sa.Column("is_active", sa.Boolean(), nullable=False))
     op.add_column(
         "users", sa.Column("is_superuser", sa.Boolean(), nullable=False)
     )
@@ -38,9 +36,7 @@ def upgrade() -> None:
         "idx_users_created_at", "users", ["created_at"], unique=False
     )
     op.create_index("idx_users_email", "users", ["email"], unique=False)
-    op.create_index(
-        "idx_users_is_active", "users", ["is_active"], unique=False
-    )
+    op.create_index("idx_users_is_active", "users", ["is_active"], unique=False)
     op.create_index(
         "idx_users_is_superuser", "users", ["is_superuser"], unique=False
     )
