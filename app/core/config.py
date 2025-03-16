@@ -3,8 +3,14 @@ from pydantic import  PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+class ApiV1Prefix(BaseModel):
+    prefix: str = "/v1"
+    users: str = "/users"
+    
 class ApiPrefix(BaseModel):
     prefix: str = "/api"
+    v1: ApiV1Prefix = ApiV1Prefix()
+    
     
 class RunConfig(BaseModel):
     host: str = "127.0.0.1"
