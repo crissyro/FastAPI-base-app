@@ -11,5 +11,11 @@ async def get_all_users(session: AsyncSession) -> Sequence[User]:
     result = await session.scalars(statement=statement)
     return result.all()
     
-
+async def create_user(session: AsyncSession, user_create: UserCreate) -> User:
+    new_user = User(**user_create.model_dump())
+    session.add(new_user)
+    await session.commit()
+    await session.refresh(new_user)
+    return new_user
+    
     

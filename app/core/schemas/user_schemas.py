@@ -1,6 +1,4 @@
 
-from datetime import datetime
-
 from pydantic import BaseModel, ConfigDict
 
 
@@ -8,8 +6,7 @@ class UserBase(BaseModel):
     username: str
     email: str
     is_active: bool
-    last_login_at: datetime
-    created_at: datetime
+    is_superuser: bool
     
 class UserCreate(UserBase):
     pass
