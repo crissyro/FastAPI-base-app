@@ -40,9 +40,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
+      - name: Build and run Docker Compose
         run: |
-          docker build -t my-app .
+          docker-compose up --build -d
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,3 +51,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Deploy application
+        run: |
+          # TODO: command for deployment 
